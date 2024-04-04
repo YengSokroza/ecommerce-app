@@ -1,0 +1,15 @@
+version: '3'
+services:
+  roza:
+    image: roza_nextjs:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3227:3000
+    networks:
+      - data_analytics
+networks:
+  data_analytics:
+    external: true 
