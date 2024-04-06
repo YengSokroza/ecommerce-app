@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 
-import { Link } from "@nextui-org/link";
+
 import clsx from "clsx";
 import NavbarComponent from "@/components/navbar/NavbarComponent";
 import FooterComponent from "@/components/FooterComponent";
@@ -13,6 +13,16 @@ import { Suspense } from "react";
 import Error from "./error";
 import Loading from "./loading";
 
+export const metadata : Metadata = {
+	title: "STAD & CO",
+	description: "STAD & CO is a vibrant online marketplace where you can discover and shop for a wide range of everyday essentials. From trendy clothing and fashion accessories to must-have lifestyle products, we've got you covered. Explore our curated selection and experience seamless online shopping at STAD & CO.",
+	keywords: "clothes, fashion, accessories, online shopping",
+	openGraph:{
+		title: "STAD & CO",
+		description: "STAD & CO is a vibrant online marketplace where you can discover and shop for a wide range of everyday essentials. From trendy clothing and fashion accessories to must-have lifestyle products, we've got you covered. Explore our curated selection and experience seamless online shopping at STAD & CO.",
+		images: 'https://store.istad.co/media/icon_images/home_banner.png'
+	}
+}
 
 export default function RootLayout({
 	children,

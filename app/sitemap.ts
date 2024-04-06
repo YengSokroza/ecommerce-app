@@ -3,28 +3,22 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'http://localhost:3001/',
+      url: 'https://sokroza.sen-pai.live/',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'hourly',
       priority: 1,
     },
     {
-      url: 'http://localhost:3001/about',
+      url: 'https://sokroza.sen-pai.live/about',
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'yearly',
       priority: 0.8,
     },
     {
-        url: 'http://localhost:3001/contact',
+        url: 'https://sokroza.sen-pai.live/policy',
         lastModified: new Date(),
-        changeFrequency: 'yearly',
+        changeFrequency: 'monthly',
         priority: 0.8,
       },
-    {
-      url: 'https://metadata-vercel-nextjs.vercel.app/service',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
   ]
 }

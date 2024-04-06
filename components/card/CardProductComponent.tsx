@@ -2,15 +2,9 @@
 'use client';
 
 import { Card } from 'flowbite-react';
+import { PropsType } from '@/libs/definition';
 
-type propsType = {
-    name: string;
-    image: string;
-    price: number;
-    onClick?: () => void
-}
-
-export default function CardProductComponent ({name, image,price,onClick} : propsType)  {
+export default function CardProductComponent ({name, image,price,onClick} : PropsType)  {
   return (
          <Card
         onClick = {onClick}

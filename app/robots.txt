@@ -3,4 +3,4 @@ Allow: /
 Disallow: /private/
 Disallow: /dashboard
 
-Sitemap:  http://localhost:3001
+Sitemap:  https://sokroza.sen-pai.live/

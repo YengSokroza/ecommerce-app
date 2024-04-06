@@ -38,7 +38,7 @@ export default function NavbarComponent() {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className=" fixed text-foreground bg-orange-100 border-0"
+      className="z-50 fixed text-foreground bg-orange-100 border-0"
     >
       <NavbarContent className="sm:hidden " justify="start">
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />

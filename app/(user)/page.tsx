@@ -9,8 +9,9 @@ import { useRouter } from "next/router";
 import CardProductComponent from "@/components/card/CardProductComponent";
 import Link from "next/link";
 import { ProductType } from "@/libs/definition";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
-
+import { items } from "./Data";
 
 
 export default function Home() {
@@ -60,18 +61,27 @@ export default function Home() {
 				</div>
 				<GridCard />
 			</section>
+			<div className='w-full  py-4 rounded-xl'>
+				<h2 className='text-slate-900 xl:text-4xl text-3xl font-bold uppercase text-center mb-4'>our partner</h2>
+				<InfiniteMovingCards items={items}
+					direction="right"
+					speed="normal"
+					pauseOnHover={true}
+
+				/>
+			</div>
 			<section className="my-12 bg-white-100 flex flex-col items-center justify-center rounded-xl">
 				<div className="bg-orange-100 w-full rounded-t-large xl:pl-16">
 					<h2 className="text-black-100 xl:text-4xl text-2xl font-semibold my-4">Shop All</h2>
 				</div>
 				<div className='grid xl:grid-cols-3 grid-cols-1 grid-flow-row  gap-4  py-8 '>
-					{products.map((product : ProductType, index) => (
+					{products.map((product: ProductType, index) => (
 						<Link key={index} href={`/${product.id}`}>
 							<CardProductComponent
-									name={product.name}
-									image={product.image}
-									price={product.price}
-								/>
+								name={product.name}
+								image={product.image}
+								price={product.price}
+							/>
 						</Link>
 					))}
 

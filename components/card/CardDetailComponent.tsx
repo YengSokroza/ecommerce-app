@@ -1,13 +1,9 @@
 
 import { Card } from 'flowbite-react';
 
-type propsType = {
-    name: string;
-    image: string;
-    desc: string;
-}
+import { DetailProductType } from '@/libs/definition';
 
-export default function CardDetailComponent({name,image,desc} : propsType) {
+export default function CardDetailComponent({name,image,desc} : DetailProductType) {
   return (
     <Card className="md:w-[800px] grid sm:grid-cols-2 p-4 grid-cols-1 dark:bg-white-100 border-none " renderImage={() => (
         <img
