@@ -9,7 +9,7 @@ export const ConfirmIcon = ({color="#333",classname = "w-16 h-16"}) =>{
   )
 }
 
-export const MenuIcon = ({color = "#333" , classname = "w-16, h-16" , onClick = () =>{} }) => {
+export const MenuIcon = ({color = "#fee253" , classname = "w-16, h-16" , onClick = () =>{} }) => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" 
     className={classname}

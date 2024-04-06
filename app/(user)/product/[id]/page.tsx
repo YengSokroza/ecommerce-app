@@ -4,7 +4,7 @@ import { Metadata, ResolvingMetadata } from "next";
 type Props = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
-  } 
+} 
 
 const ENDPOINT = "https://store.istad.co/api/products/"
 

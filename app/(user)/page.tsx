@@ -57,7 +57,7 @@ export default function Home() {
 			<section className=" py-8 bg-white-100 flex flex-col items-center justify-center rounded-xl mb-8">
 				<h3 className="text-black-100 xl:text-4xl text-2xl font-semibold my-4">New Arrivals</h3>
 				<div className="max-w-5xl">
-					<p className="text-black-100 xl:text-xl text-md font-light text-center mb-8 px-16 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quo doloremque minus, aspernatur eum quae. Voluptatem doloribus corrupti, esse rem quo dolore velit beatae itaque eligendi aut tempore deserunt placeat?</p>
+					<p className="text-black-100 xl:text-xl text-md font-light text-center mb-8 px-16 ">Step into a world of unparalleled elegance and trend-setting flair with our captivating array of new arrivals in fashion, where every stitch tells a story of glamour and refinement, promising to elevate your style to new heights and leave a lasting impression wherever you go!</p>
 				</div>
 				<GridCard />
 			</section>
@@ -76,7 +76,7 @@ export default function Home() {
 				</div>
 				<div className='grid xl:grid-cols-3 grid-cols-1 grid-flow-row  gap-4  py-8 '>
 					{products.map((product: ProductType, index) => (
-						<Link key={index} href={`/${product.id}`}>
+						<Link key={index} href={`/product/${product.id}`}>
 							<CardProductComponent
 								name={product.name}
 								image={product.image}

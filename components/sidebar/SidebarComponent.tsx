@@ -55,7 +55,7 @@ type MenuItem = {
 export default function SideBarComponent() {
 	const [menuList, setMenuList] = useState<MenuItem[]>(MenuList);
   return (
-    <Sidebar className="bg-black-100 " aria-label="Sidebar with logo branding example">
+    <Sidebar className="relative" aria-label="Sidebar with logo branding example">
       
 
       <Sidebar.Items>

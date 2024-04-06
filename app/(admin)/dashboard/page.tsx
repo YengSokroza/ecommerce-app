@@ -4,9 +4,15 @@ import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Button, Modal } from "flowbite-react";
 import Image from "next/image";
+import { BASE_URL, ACCESS_TOKEN } from "@/libs/constant";
+import {Spinner} from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+
+
 
 
 export default function Dashboard() {
+	const router = useRouter();
 	const [products, setProducts] = useState<ProductType[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [openModal, setOpenModal] = useState(false);
@@ -33,6 +39,31 @@ export default function Dashboard() {
 	const handleViewProduct = (product: ProductType) => {
 		setProductDetail(product);
 		setOpenModal(true);
+	};
+
+	const handleEditProduct = (productId: number) => {
+		router.push(`/edit-product/${productId}`);
+	};
+
+	const handleDeleteProduct = (productId: number) => {
+		fetch(`${BASE_URL}/api/products/${productId}/`, {
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${ACCESS_TOKEN}`,
+			},
+		})
+			.then((res) => {
+				if (res.ok) {
+					// Filter out the deleted product from the state
+					setProducts(products.filter((product) => product.id !== productId));
+				} else {
+					throw new Error("Failed to delete product");
+				}
+			})
+			.catch((error) => {
+				console.error("Error deleting product:", error);
+				// Handle error as needed
+			});
 	};
 
 	const columns: TableColumn<ProductType>[] = [
@@ -62,35 +93,40 @@ export default function Dashboard() {
 			selector: (row): any => (
 				<div>
 					<button
-						onClick={() => handleViewProduct(row)}
-						className="text-blue-600 mx-2"
+						onClick={() => {
+							console.log(row.id)
+							handleViewProduct(row)
+						}
+						}
+						className="bg-blue-600 text-white-100 mx-2 px-2 py-1 rounded-xl uppercase font-semibold"
 					>
 						view
 					</button>
-					<button className="text-yellow-400 mx-2">edit</button>
-					<button className="text-red-600 mx-2">delete</button>
+					<button onClick={()=> handleEditProduct(row.id) } className="bg-yellow-400 text-white-100 mx-2 px-2 py-1 rounded-xl uppercase font-semibold">edit</button>
+					<button onClick={() => handleDeleteProduct(row.id)} className="bg-red-600 text-white-100 mx-2 px-2 py-1 rounded-xl uppercase font-semibold">delete</button>
 				</div>
 			),
 		},
 	];
 
 	return (
-		<main className="h-screen">
+		<main className="min-h-screen ">
 			<DataTable
 				fixedHeader
 				progressPending={loading}
+				progressComponent={<Spinner className=" w-full pt-8"/>}
 				columns={columns}
 				data={products}
-				pagination
 				customStyles={customStyles}
 				striped
 				highlightOnHover
 			/>
 			<Modal show={openModal} onClose={() => setOpenModal(false)}>
-				<Modal.Header>Product Detial</Modal.Header>
+				<Modal.Header>Product Detail</Modal.Header>
 				<Modal.Body>
 					<div className="space-y-6">
 						<Image
+							className="mx-auto"
 							src={productDetail?.image || imagePlaceholder}
 							alt={productDetail?.name || "Unknown"}
 							width={250}
@@ -100,7 +136,7 @@ export default function Dashboard() {
 						<p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
 							{productDetail?.desc || "No description"}
 						</p>
-						
+
 					</div>
 				</Modal.Body>
 			</Modal>

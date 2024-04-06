@@ -14,6 +14,9 @@ module.exports = {
 
   theme: {
     extend: {
+      screens: {
+        'xs': '24rem',
+      },
       colors: {
         'orange-100': '#ff8518',
         'yellow-100': '#fee253',
