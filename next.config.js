@@ -14,7 +14,7 @@ module.exports =  {
               pathname: '/media/product_images/**', 
           },
       ],
-      domains: ['*','hips.hearstapps.com','store.istad.co'],
+      domains: ['*','hips.hearstapps.com','store.istad.co','fakestoreapi.com'],
   },
   // Other Next.js configuration options can go here
 };
