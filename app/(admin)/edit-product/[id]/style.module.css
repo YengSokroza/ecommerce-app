@@ -1,5 +1,5 @@
 .container {
-	@apply  min-h-screen xs:grid xs:place-content-center p-4 hidden ;
+	@apply  min-h-screen xs:grid xs:place-content-center p-4  ;
   
 }
 

@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <section className='w-full grid place-content-center place-items-center bg-white-100  text-black-100 mb-10'>
-      <div className='grid  py-4 px-8 place-items-center'>
+      <div className='grid p-8 place-items-center'>
         <div>
-          <h1 className='text-md font-bold text-orange-100'>Behind the Scenes</h1>
-          <p className='text-7xl'>What Our Policy Means for You</p>
+          <h1 className='xl:text-md text-sm font-bold text-orange-100'>Behind the Scenes</h1>
+          <p className='xl:text-7xl text-2xl'>What Our Policy Means for You</p>
           <Image
             className='mx-auto'
             src={policy}
@@ -38,10 +38,10 @@ export default function page() {
         </div>
         <div className="max-w-5xl mx-auto py-4 ">
           <div className='mb-8 space-y-2'>
-            <h1 className='xl:text-3xl text-xl font-semibold text-black-100'>
+            <h1 className='xl:text-3xl text-lg font-semibold text-black-100'>
               Ecommerce Policy for STAD & CO
             </h1>
-            <p className='text-lg'>This Ecommerce Policy outlines the terms and conditions governing your use of our online store at https://sokroza.sen-pai.live/ . By accessing or using our store, you agree to be bound by these terms and conditions.</p>
+            <p className='text-md'>This Ecommerce Policy outlines the terms and conditions governing your use of our online store at https://sokroza.sen-pai.live/ . By accessing or using our store, you agree to be bound by these terms and conditions.</p>
           </div>
           <TracingBeam>
             <ArticleComponent />

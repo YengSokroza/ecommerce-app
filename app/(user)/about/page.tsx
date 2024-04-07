@@ -22,7 +22,7 @@ export default function page() {
   return (
     <>
 
-      <section className='my-8 py-8  rounded-lg space-y-8'>
+      <section className='xl:my-8 py-8 rounded-lg space-y-8'>
 
         <div >
           <h2 className='text-slate-900 xl:text-4xl text-3xl font-bold uppercase text-center '>Get hyped! Explore the world of STAD & CO</h2>

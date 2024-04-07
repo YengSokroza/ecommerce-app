@@ -34,7 +34,7 @@ export default function Home() {
 	return (
 		<>
 			<section className="grid place-items-center relative ">
-				<div className="grid xl:grid-cols-2 grid-cols-1 place-items-center place-content-center">
+				<div className="grid xl:grid-cols-2 py-4 grid-cols-1 place-items-center place-content-center">
 					<div>
 						<h1 className="text-black-100 xl:text-8xl text-4xl font-bold mb-4">It&apos;s shopping spree time!</h1>
 						<p className="text-black-100 xl:text-3xl text-2xl font-semibold mb-6">You coming, or are you just gonna stare at those amazing deals?</p>
@@ -61,7 +61,7 @@ export default function Home() {
 				</div>
 				<GridCard />
 			</section>
-			<div className='w-full  py-4 rounded-xl'>
+			<div className='md:block hidden w-full py-4 rounded-xl'>
 				<h2 className='text-slate-900 xl:text-4xl text-3xl font-bold uppercase text-center mb-4'>our partner</h2>
 				<InfiniteMovingCards items={items}
 					direction="right"
@@ -72,9 +72,9 @@ export default function Home() {
 			</div>
 			<section className="my-12 bg-white-100 flex flex-col items-center justify-center rounded-xl">
 				<div className="bg-orange-100 w-full rounded-t-large xl:pl-16">
-					<h2 className="text-black-100 xl:text-4xl text-2xl font-semibold my-4">Shop All</h2>
+					<h2 className="text-black-100 xl:text-4xl text-2xl font-semibold my-4 pl-4">Shop All</h2>
 				</div>
-				<div className='grid xl:grid-cols-3 grid-cols-1 grid-flow-row  gap-4  py-8 '>
+				<div className='grid xl:grid-cols-3 grid-cols-1 grid-flow-row gap-8 p-8 '>
 					{products.map((product: ProductType, index) => (
 						<Link key={index} href={`/product/${product.id}`}>
 							<CardProductComponent

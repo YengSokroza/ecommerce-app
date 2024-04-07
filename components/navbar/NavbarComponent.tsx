@@ -20,18 +20,7 @@ export default function NavbarComponent() {
   const pathname = usePathname();
 	const [menu, setMenu] = useState<MenuItem[]>(MenuList);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+ 
 
   return (
     <Navbar
@@ -56,8 +45,21 @@ export default function NavbarComponent() {
           <Image src={logo} width={60} height={50} alt="logo" />
          
         </NavbarBrand>
-       
         {menu.map((item, index) => (
+          <NavbarMenuItem key={index}>
+            <Link
+              className="w-full"
+              color={
+                item.path == pathname ? "primary" :  "foreground"
+              }
+              href={item.path}
+              size="md"
+            >
+              {item.name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+        {/* {menu.map((item, index) => (
 					<NavbarItem
 						key={index}
 						as={Link}
@@ -68,7 +70,7 @@ export default function NavbarComponent() {
 					>
 						{item.name}
 					</NavbarItem>
-				))}
+				))} */}
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -80,17 +82,17 @@ export default function NavbarComponent() {
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+        {menu.map((item, index) => (
+          <NavbarMenuItem key={index}>
             <Link
               className="w-full"
               color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                item.path === pathname ? "warning" :  "foreground"
               }
-              href="#"
+              href={item.path}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

@@ -12,7 +12,7 @@ export default function ArticleComponent() {
     const [article, setArticle] = useState<ArticleType[]>(ArticleList);
     return (
             <article >
-                <ul className='list-decimal space-y-8'>
+                <ul className='list-decimal space-y-8 px-8'>
                     {article.map((item, index) => (
                         <li
                             key={index}
